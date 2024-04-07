@@ -8,7 +8,10 @@ public class PlantManager : MonoBehaviour
     // Start is called before the first frame update
     public Tilemap plantMap;
     public Tilemap soilMap;
-    public TileBase tile;
+    public TileBase wheatTile1;
+    public TileBase carrotTile1;
+    public TileBase cornTile1;
+    public TileBase tomatoTile1;
     public TileBase soilTile;
     public Grid grid;
     void Start()
@@ -27,12 +30,24 @@ public class PlantManager : MonoBehaviour
             // get the collision point of the ray with the z = 0 plane
             Vector3 worldPoint = ray.GetPoint(-ray.origin.z / ray.direction.z);
             Vector3Int position = grid.WorldToCell(worldPoint);
-            //if (soilMap.GetTile(position) == soilTile) 
-                plantMap.SetTile(position, tile);
+            //if (soilMap.GetTile(position) == soilTile) {
+            if (GameManager.instance.selected == GameManager.Selectables.Wheat)
+            {
+                plantMap.SetTile(position, wheatTile1);
+            }
+            else if (GameManager.instance.selected == GameManager.Selectables.Carrots)
+            {
+                plantMap.SetTile(position, carrotTile1);
+            }
+            else if (GameManager.instance.selected == GameManager.Selectables.Corn)
+            {
+                plantMap.SetTile(position, cornTile1);
+            }
+            else if (GameManager.instance.selected == GameManager.Selectables.Tomatos)
+            {
+                plantMap.SetTile(position, tomatoTile1);
+            }
+            //}
         }
-    }
-    public void OnClick(GameObject go)
-    {
-        //if (go == null) return;
     }
 }

@@ -3046,7 +3046,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   plantMap: {fileID: 23983325}
   soilMap: {fileID: 1205076536}
-  tile: {fileID: 11400000, guid: 474aa90cc2589dc49ac03cb1ac79260c, type: 2}
+  wheatTile1: {fileID: 11400000, guid: 707c49332ab0bcd498a0e3e2e81f5717, type: 2}
+  carrotTile1: {fileID: 11400000, guid: b7a6e9ea46ca60844bc68d5eaa7a2ac3, type: 2}
+  cornTile1: {fileID: 11400000, guid: 42ed8d20d2639ae4e8eb83138d07cc6c, type: 2}
+  tomatoTile1: {fileID: 11400000, guid: 7ac42fb3d5a50e946a872c29852f6303, type: 2}
   soilTile: {fileID: 11400000, guid: 84542dc9aac8c374ebaf0ec264d31373, type: 2}
   grid: {fileID: 1552735180}
 --- !u!1 &1581534698
