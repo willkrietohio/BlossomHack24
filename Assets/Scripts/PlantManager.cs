@@ -13,6 +13,7 @@ public class PlantManager : MonoBehaviour
     public TileBase[] cornTile;
     public TileBase[] tomatoTile;
     public TileBase soilTile;
+    public TileBase tilledTile;
     public Grid grid;
     void Start()
     {
@@ -30,7 +31,7 @@ public class PlantManager : MonoBehaviour
             // get the collision point of the ray with the z = 0 plane
             Vector3 worldPoint = ray.GetPoint(-ray.origin.z / ray.direction.z);
             Vector3Int position = grid.WorldToCell(worldPoint);
-            if (soilMap.GetTile(position).name == soilTile.name) {
+            if (soilMap.GetTile(position).name == tilledTile.name) {
                 switch (GameManager.instance.selected)
                 {
                     case GameManager.Selectables.Wheat:
@@ -47,6 +48,10 @@ public class PlantManager : MonoBehaviour
                         break;
                     default: break;
                 }
+            }
+            else if (soilMap.GetTile(position).name == soilTile.name && GameManager.instance.selected == GameManager.Selectables.Hoe)
+            {
+                soilMap.SetTile(position, tilledTile);
             }
         }
     }

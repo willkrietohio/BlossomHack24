@@ -3071,6 +3071,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1a936975a755fca429860d804fc99b1d, type: 2}
   - {fileID: 11400000, guid: 237b844ba13282542912c012732a79e4, type: 2}
   soilTile: {fileID: 11400000, guid: 84542dc9aac8c374ebaf0ec264d31373, type: 2}
+  tilledTile: {fileID: 11400000, guid: 2a6aafa07c1f16641aa8f15ceac97602, type: 2}
   grid: {fileID: 1552735180}
 --- !u!1 &1581534698
 GameObject:
