@@ -155,8 +155,30 @@ using Random = UnityEngine.Random;
 			Instantiate(exit, new Vector3(columns - 1, rows - 1, 0f), Quaternion.identity);
 		}
 	[SerializeField]
-    public void OnCarrotClick(int value)
+    public void OnOptionClick(int value)
     {
-        GameManager.instance.selected = GameManager.Selectables.Carrots;
+		switch (value)
+		{
+			case 0:
+                GameManager.instance.selected = GameManager.Selectables.Wheat;
+				return;
+			case 1:
+                GameManager.instance.selected = GameManager.Selectables.Carrots;
+				return;
+			case 2:
+                GameManager.instance.selected = GameManager.Selectables.Corn;
+				return;
+			case 3:
+                GameManager.instance.selected = GameManager.Selectables.Tomatos;
+				return;
+			case 4:
+                GameManager.instance.selected = GameManager.Selectables.Water;
+				return;
+			case 5:
+                GameManager.instance.selected = GameManager.Selectables.Hoe;
+				return;
+			default:
+				return;
+        }
     }
 }
