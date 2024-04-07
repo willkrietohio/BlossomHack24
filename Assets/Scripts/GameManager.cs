@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
-using System.Collections.Generic;        //Allows us to use Lists. 
+using System.Collections.Generic;
+using TMPro;        //Allows us to use Lists. 
 
 public class GameManager : MonoBehaviour
 {
@@ -9,7 +10,9 @@ public class GameManager : MonoBehaviour
     //Store a reference to our BoardManager which will set up the level.
     private BoardManager boardScript;
     //Current level number, expressed in game as "Day  1".
-    public int gold = 50;
+    public int gold = 25;
+
+    [SerializeField] private TMP_Text goldText;
 
     public enum Selectables { None = 0, Water, Hoe, Wheat, Carrots, Corn, Tomatos}
 
@@ -43,12 +46,16 @@ public class GameManager : MonoBehaviour
     //Initializes the game for each level.
     void InitGame()
     {
+        updateGold();
         //Call the SetupScene function of the BoardManager script, pass it current level number.
         boardScript.SetupScene();
 
     }
 
-
+    public void updateGold()
+    {
+        instance.goldText.text = GameManager.instance.gold.ToString();
+    }
 
     //Update is called every frame.
     void Update()
