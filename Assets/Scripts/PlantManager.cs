@@ -30,24 +30,24 @@ public class PlantManager : MonoBehaviour
             // get the collision point of the ray with the z = 0 plane
             Vector3 worldPoint = ray.GetPoint(-ray.origin.z / ray.direction.z);
             Vector3Int position = grid.WorldToCell(worldPoint);
-            //if (soilMap.GetTile(position) == soilTile) {
-            if (GameManager.instance.selected == GameManager.Selectables.Wheat)
-            {
-                plantMap.SetTile(position, wheatTile[0]);
+            if (soilMap.GetTile(position).name == soilTile.name) {
+                switch (GameManager.instance.selected)
+                {
+                    case GameManager.Selectables.Wheat:
+                        plantMap.SetTile(position, wheatTile[0]);
+                        break;
+                    case GameManager.Selectables.Carrots:
+                        plantMap.SetTile(position, carrotTile[0]);
+                        break;
+                    case GameManager.Selectables.Corn:
+                        plantMap.SetTile(position, cornTile[0]);
+                        break;
+                    case GameManager.Selectables.Tomatos:
+                        plantMap.SetTile(position, tomatoTile[0]);
+                        break;
+                    default: break;
+                }
             }
-            else if (GameManager.instance.selected == GameManager.Selectables.Carrots)
-            {
-                plantMap.SetTile(position, carrotTile[0]);
-            }
-            else if (GameManager.instance.selected == GameManager.Selectables.Corn)
-            {
-                plantMap.SetTile(position, cornTile[0]);
-            }
-            else if (GameManager.instance.selected == GameManager.Selectables.Tomatos)
-            {
-                plantMap.SetTile(position, tomatoTile[0]);
-            }
-            //}
         }
     }
 }
