@@ -8,10 +8,10 @@ public class PlantManager : MonoBehaviour
     // Start is called before the first frame update
     public Tilemap plantMap;
     public Tilemap soilMap;
-    public TileBase wheatTile1;
-    public TileBase carrotTile1;
-    public TileBase cornTile1;
-    public TileBase tomatoTile1;
+    public TileBase[] wheatTile;
+    public TileBase[] carrotTile;
+    public TileBase[] cornTile;
+    public TileBase[] tomatoTile;
     public TileBase soilTile;
     public Grid grid;
     void Start()
@@ -33,19 +33,19 @@ public class PlantManager : MonoBehaviour
             //if (soilMap.GetTile(position) == soilTile) {
             if (GameManager.instance.selected == GameManager.Selectables.Wheat)
             {
-                plantMap.SetTile(position, wheatTile1);
+                plantMap.SetTile(position, wheatTile[0]);
             }
             else if (GameManager.instance.selected == GameManager.Selectables.Carrots)
             {
-                plantMap.SetTile(position, carrotTile1);
+                plantMap.SetTile(position, carrotTile[0]);
             }
             else if (GameManager.instance.selected == GameManager.Selectables.Corn)
             {
-                plantMap.SetTile(position, cornTile1);
+                plantMap.SetTile(position, cornTile[0]);
             }
             else if (GameManager.instance.selected == GameManager.Selectables.Tomatos)
             {
-                plantMap.SetTile(position, tomatoTile1);
+                plantMap.SetTile(position, tomatoTile[0]);
             }
             //}
         }
