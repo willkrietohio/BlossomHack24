@@ -1,8 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using static UnityEditor.PlayerSettings;
 
 public class PlantManager : Singleton<PlantManager>
 {
@@ -24,8 +26,11 @@ public class PlantManager : Singleton<PlantManager>
         public void AddTick()
         {
             ticks += (Instance.soilMap.GetTile(pos).name == Instance.wateredTile.name) ? 5 : 1;
-            if (ticks % 100 == 0 && index < 5)
+            if (ticks >= 100 && index < 5)
+            {
+                ticks -= 100;
                 UpdateGraphics();
+            }
         }
 
         private void UpdateGraphics() => Instance.plantMap.SetTile(pos, tiles[index++]);
@@ -62,7 +67,7 @@ public class PlantManager : Singleton<PlantManager>
             Vector3Int position = grid.WorldToCell(worldPoint);
             if (soilMap.GetTile(position) && !plantMap.GetTile(position))
             {
-                if (soilMap.GetTile(position).name == tilledTile.name)
+                if (soilMap.GetTile(position).name == tilledTile.name || soilMap.GetTile(position).name == wateredTile.name)
                 {
                     switch (GameManager.instance.selected)
                     {
@@ -74,6 +79,8 @@ public class PlantManager : Singleton<PlantManager>
                             Crops.Add(new CropTile(position, cornTile)); break;
                         case GameManager.Selectables.Tomatos:
                             Crops.Add(new CropTile(position, tomatoTile)); break;
+                        case GameManager.Selectables.Water:
+                            soilMap.SetTile(position, wateredTile); break;
                         default: break;
                     }
                 }
@@ -81,6 +88,11 @@ public class PlantManager : Singleton<PlantManager>
                 {
                     soilMap.SetTile(position, tilledTile);
                 }
+            }
+            else if ((soilMap.GetTile(position).name == tilledTile.name 
+                || soilMap.GetTile(position).name == wateredTile.name) && GameManager.instance.selected == GameManager.Selectables.Water)
+            {
+                soilMap.SetTile(position, wateredTile);
             }
         }
     }
