@@ -135,7 +135,7 @@ public class PlantManager : Singleton<PlantManager>
                             default: break;
                         }
                     }
-                    else
+                    else if (GameManager.instance.selected == GameManager.Selectables.Scythe)
                     {
                         CropTile tile = FindCropTile(position);
                         if (tile != null && tile.finished())

@@ -177,7 +177,10 @@ using Random = UnityEngine.Random;
 			case 5:
                 GameManager.instance.selected = GameManager.Selectables.Hoe;
 				return;
-			default:
+            case 6:
+                GameManager.instance.selected = GameManager.Selectables.Scythe;
+                return;
+            default:
 				return;
         }
     }

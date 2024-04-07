@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private TMP_Text goldText;
 
-    public enum Selectables { None = 0, Water, Hoe, Wheat, Carrots, Corn, Tomatos}
+    public enum Selectables { None = 0, Water, Hoe, Wheat, Carrots, Corn, Tomatos, Scythe}
 
     public Selectables selected = Selectables.None;
 
