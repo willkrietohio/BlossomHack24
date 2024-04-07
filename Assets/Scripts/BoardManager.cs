@@ -134,13 +134,13 @@ using Random = UnityEngine.Random;
 		public void SetupScene()
 		{
 			//Creates the outer walls and floor.
-			BoardSetup();
+			//BoardSetup();
 
 			//Reset our list of gridpositions.
-			InitialiseList();
+			//InitialiseList();
 
 			//Instantiate a random number of wall tiles based on minimum and maximum, at randomized positions.
-			LayoutObjectAtRandom(wallTiles, wallCount.minimum, wallCount.maximum);
+			//LayoutObjectAtRandom(wallTiles, wallCount.minimum, wallCount.maximum);
 
 			//Instantiate a random number of food tiles based on minimum and maximum, at randomized positions.
 			//LayoutObjectAtRandom(foodTiles, foodCount.minimum, foodCount.maximum);
@@ -152,7 +152,7 @@ using Random = UnityEngine.Random;
 			//LayoutObjectAtRandom(enemyTiles, enemyCount, enemyCount);
 
 			//Instantiate the exit tile in the upper right hand corner of our game board
-			Instantiate(exit, new Vector3(columns - 1, rows - 1, 0f), Quaternion.identity);
+			//Instantiate(exit, new Vector3(columns - 1, rows - 1, 0f), Quaternion.identity);
 		}
 	[SerializeField]
     public void OnOptionClick(int value)
